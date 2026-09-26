@@ -15,13 +15,13 @@ public class SeleniumTest {
 
         try {
 
-            // Open application
+            // Open MovieHub application
             driver.get("http://localhost:8081/DevOpsDemo/");
 
             // Check page title
             assertEquals(
-                "MovieMate | Movie & Event Booking",
-                driver.getTitle()
+                    "MovieHub | Movie & Event Booking",
+                    driver.getTitle()
             );
 
             // Select movie
@@ -49,20 +49,19 @@ public class SeleniumTest {
                     .click();
 
             // Get confirmation message
-            String message =
-                    driver.findElement(By.id("message"))
+            String message = driver.findElement(By.id("message"))
                     .getText();
 
             // Verify booking confirmation
             assertTrue(
-                message.contains("Booking Confirmed"),
-                "Booking confirmation was not displayed"
+                    message.contains("Booking Confirmed"),
+                    "Booking confirmation was not displayed"
             );
 
         } finally {
 
+            // Close browser
             driver.quit();
-
         }
     }
 }
