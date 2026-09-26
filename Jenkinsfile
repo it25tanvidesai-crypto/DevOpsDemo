@@ -18,5 +18,11 @@ pipeline {
                 bat 'mvn clean package -DskipTests'
             }
         }
+
+        stage('Selenium Test') {
+            steps {
+                bat 'mvn test'
+            }
+        }
     }
 }
